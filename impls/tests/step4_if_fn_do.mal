@@ -1,5 +1,14 @@
 ;; -----------------------------------------------------
 
+;; c.3 tests
+(def! f (fn* () cookies))
+(f)
+;/.*not found.*
+(def! cookies 500)
+(f)
+;=>500
+
+
 
 ;; Testing list functions
 (list)
