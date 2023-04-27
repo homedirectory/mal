@@ -2,9 +2,11 @@
 
 (def! sum2 (fn* (n acc) (if (= n 0) acc (sum2 (- n 1) (+ n acc)))))
 
-;; TODO: test let*, and do for TCO
-
 (sum2 10 0)
+;=>55
+
+;; let* and do
+(let* (f (fn* (n acc) (if (= n 0) acc (f (- n 1) (+ n acc))))) (do (f 5 0) 5 (f 10 0)))
 ;=>55
 
 (def! res2 nil)
